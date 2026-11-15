@@ -1,0 +1,53 @@
+/*
+ * Typography
+ */
+
+@font-face {
+  font-display: swap;
+  font-family: "Poppins";
+  src: url("../fonts/poppins-v24-latin-regular.woff2") format("woff2");
+  font-style: normal;
+}
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body{
+  color: var(--theme-color-neutral3);
+  font-family: var(--theme-font-body);
+  font-size: var(--theme-font-size-base);
+  line-height: var(--theme-line-height-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--theme-font-heading);
+  line-height: var(--theme-line-height-heading);
+}   
+
+a,
+a:hover,
+a:focus,
+a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.intro-kicker {
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+}
+
+.intro-title {
+  line-height: 1.1;
+}
+
+.intro-text {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}

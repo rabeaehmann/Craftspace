@@ -1,0 +1,24 @@
+/*
+ * Constants
+ *
+ * Keep colors and reusable theme values here.
+ */
+:root {
+  --theme-color-primary: #B0AFFD;
+  --theme-color-secondary: #E8BCF0;
+  --theme-color-tertiary: #D5EA3E;
+  --theme-color-accent: #EFEEFF;
+  --theme-color-background: #FEFFF8;
+  --theme-color-neutral1: #DADADA;
+  --theme-color-neutral2: #757575;
+  --theme-color-neutral3: #040320;
+
+  --theme-transition: all 0.3s ease-in-out;
+
+  --theme-font-body: "Poppins", sans-serif;
+  --theme-font-heading: "Poppins", sans-serif;
+
+  --theme-font-size-base: 16px; 
+  --theme-line-height-body: 1.5;
+  --theme-line-height-heading: 1.1;
+}

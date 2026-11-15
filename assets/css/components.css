@@ -1,0 +1,77 @@
+/*
+ * Components
+ */
+.intro-image {
+  display: block;
+}
+
+/*** Button ***/
+
+.btn-primary,
+.btn-secondary {
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.btn-primary {
+  background-color: var(--theme-color-primary);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--theme-color-secondary);
+  color: white;
+}
+
+
+/*** Image Slider ***/
+
+.projecttheme-image-slider .carousel-inner {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.projecttheme-image-slider .carousel-item,
+.projecttheme-image-slider .carousel-item img {
+  height: 100%;
+}
+
+.projecttheme-image-slider .carousel-item img {
+  object-fit: cover;
+}
+
+.gallery-highlight-wrapper {
+  display: flex;
+  padding-left: 150px;
+  padding-right: 150px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+/* Gallery Highlight – einzelne Section */
+section.gallery_highlight {
+    display: inline-flex;
+    vertical-align: top;
+    width: 333px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Bild */
+.gallery-highlight-image {
+    display: block;
+    width: 100%;
+    height: 430px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+/* Titel und Text */
+section.gallery_highlight h2,
+section.gallery_highlight .rte {
+    width: 100%;
+    text-align: center;
+}

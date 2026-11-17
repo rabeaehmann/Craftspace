@@ -9,18 +9,25 @@
 
 .btn-primary,
 .btn-secondary {
-  border-radius: 0.75rem;
-  padding: 0.75rem 1.5rem;
+border-radius: 27px;
+padding: 0.75rem 1.5rem;
 }
 
     .btn-primary {
-      background-color: var(--theme-color-primary);
-      color: white;
+    border: 1px solid var(--theme-color-neutral3);
+    background: rgba(254, 255, 248, 0.25);
+    color: var(--theme-color-neutral3);
+    }
+
+    .btn-primary:hover {
+    border: 1px solid var(--theme-color-neutral3);
+    background: var(--theme-color-neutral3);
+    color: var(--theme-color-neutral1);
     }
 
     .btn-secondary {
-      background-color: var(--theme-color-secondary);
-      color: white;
+    background-color: var(--theme-color-secondary);
+    color: white;
     }
 
 
@@ -132,9 +139,9 @@ section.gallery_highlight {
     width: 100%;
     padding: 0;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .card {
@@ -170,3 +177,43 @@ section.gallery_highlight {
     height: 182px;
     object-fit: cover;
 }
+
+/* Page Introduction */
+.page-introduction {
+    display: flex;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
+    padding: 40px 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+
+    box-sizing: border-box;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+        /* Eyebrow */
+        .page-introduction-eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Title */
+        .page-introduction-title {
+            margin: 0;
+            font-size: 72px;
+            line-height: 1.1;
+            font-weight: 400;
+        }
+
+        /* Description */
+        .page-introduction-text {
+            font-size: 20px;
+            line-height: 1.4;
+        }

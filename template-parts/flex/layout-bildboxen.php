@@ -55,7 +55,7 @@ $col_md  = 12 / max(1, $columns);
 
         <?php if ($url): ?>
           <div class="mt-auto">
-            <a class="btn btn-outline-primary"
+            <a class="btn btn-primary"
                href="<?php echo esc_url($url); ?>"
                target="<?php echo esc_attr($target); ?>">
               <?php echo esc_html($label ?: __('Mehr','projecttheme')); ?>

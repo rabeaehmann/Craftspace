@@ -117,6 +117,10 @@ while (have_rows('page_modules')) : the_row();
         case 'gallery_highlight':
             get_template_part('template-parts/flex/layout', 'gallery-highlight');
             break;
+
+        case 'page_introduction':
+            get_template_part('template-parts/flex/layout', 'page-introduction');
+            break;
         
     }
 

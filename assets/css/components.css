@@ -13,15 +13,15 @@
   padding: 0.75rem 1.5rem;
 }
 
-.btn-primary {
-  background-color: var(--theme-color-primary);
-  color: white;
-}
+    .btn-primary {
+      background-color: var(--theme-color-primary);
+      color: white;
+    }
 
-.btn-secondary {
-  background-color: var(--theme-color-secondary);
-  color: white;
-}
+    .btn-secondary {
+      background-color: var(--theme-color-secondary);
+      color: white;
+    }
 
 
 /*** Image Slider ***/
@@ -31,24 +31,24 @@
   overflow: hidden;
 }
 
-.projecttheme-image-slider .carousel-item,
-.projecttheme-image-slider .carousel-item img {
-  height: 100%;
-}
+    .projecttheme-image-slider .carousel-item,
+    .projecttheme-image-slider .carousel-item img {
+      height: 100%;
+    }
 
-.projecttheme-image-slider .carousel-item img {
-  object-fit: cover;
-}
+    .projecttheme-image-slider .carousel-item img {
+      object-fit: cover;
+    }
 
-.gallery-highlight-wrapper {
-  display: flex;
-  padding-left: 150px;
-  padding-right: 150px;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 70px;
-  flex-wrap: wrap;
-}
+    .gallery-highlight-wrapper {
+      display: flex;
+      padding-left: 150px;
+      padding-right: 150px;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+    }
 
 /* Gallery Highlight – einzelne Section */
 section.gallery_highlight {
@@ -60,18 +60,113 @@ section.gallery_highlight {
     text-align: center;
 }
 
-/* Bild */
-.gallery-highlight-image {
-    display: block;
-    width: 100%;
-    height: 430px;
-    border-radius: 30px;
-    object-fit: cover;
+      /* Bild */
+      .gallery-highlight-image {
+          display: block;
+          width: 100%;
+          height: 430px;
+          border-radius: 30px;
+          object-fit: cover;
+      }
+
+      /* Titel und Text */
+      section.gallery_highlight h2,
+      section.gallery_highlight .rte {
+          width: 100%;
+          text-align: center;
+      }
+
+
+/* Home Card */
+.home-cards {
+    display: flex;
+    width: 336px;
+    height: 395px;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+
+    border-radius: 20px;
+    box-sizing: border-box;
 }
 
-/* Titel und Text */
-section.gallery_highlight h2,
-section.gallery_highlight .rte {
+   /* Cards Grid */
+.row.g-4 {
+    row-gap: 30px;
+}
+
+/* Einzelne Card */
+.card {
+    width: 336px;
+    height: 395px;
+    min-height: 395px;
+    box-sizing: border-box;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Bild */
+.card .ratio {
+    width: 276px;
+    height: 182px;
+    flex: 0 0 182px;
+    aspect-ratio: auto;
+}
+
+.card .card-img-top {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Card Inhalt */
+.card-body {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     text-align: center;
+}
+
+.card {
+    width: 336px;
+    height: 395px;
+    padding: 30px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-style: none;
+}
+
+.card-body {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card-img-top {
+    width: 276px;
+    height: 182px;
+    object-fit: cover;
 }

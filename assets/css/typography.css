@@ -60,9 +60,10 @@ h1 {
 }
 
 h2 {
-  font-size: 40px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  font-size: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 116%;
 }
 
 h3 {
@@ -82,4 +83,6 @@ h5 /*uppercase small text*/{
 h6 /*grey detail text*/{
   color: #757575;
   font-size: 12px;
+  text-transform: uppercase;
 }
+

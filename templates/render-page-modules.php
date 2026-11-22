@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Rendert die ACF Flexible-Content-Felder aus `page_modules`
@@ -121,7 +120,19 @@ while (have_rows('page_modules')) : the_row();
         case 'page_introduction':
             get_template_part('template-parts/flex/layout', 'page-introduction');
             break;
+
+        case 'footer':
+            get_template_part('template-parts/flex/layout', 'footer');
+            break;
+
+        case 'breaker_own':
+            get_template_part('template-parts/flex/layout', 'breaker-own');
+            break;
         
+        case 'text_2col_intro':
+            get_template_part('template-parts/flex/layout', 'text-2col-intro');
+            break;
+            
     }
 
     // Section schließen

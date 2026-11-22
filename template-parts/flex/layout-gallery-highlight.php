@@ -1,3 +1,4 @@
+
 <?php
 /**
  * Gallery Highlight – Bild oben, Text darunter
@@ -22,13 +23,13 @@ $body   = get_sub_field('text');
     <?php endif; ?>
 
     <?php if ($title): ?>
-        <h2 class="mb-3">
-            <?php echo esc_html($title); ?>
-        </h2>
+        <p class="gallery-highlight-title">
+            <?php echo esc_html(wp_strip_all_tags($title)); ?>
+        </p>
     <?php endif; ?>
 
     <?php if ($body): ?>
-        <div class="rte">
+        <div class="gallery-highlight-text rte">
             <?php echo wp_kses_post($body); ?>
         </div>
     <?php endif; ?>

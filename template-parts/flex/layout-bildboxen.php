@@ -2,73 +2,95 @@
 <?php
 /**
  * Bildboxen (Cards Grid)
- * Felder: boxes (repeater: image, background_image, title, text, link)
+ * ACF-Felder:
+ * boxes (Repeater: image, background_image, title, text, link)
+ * columns (Anzahl Spalten)
  */
 
 $boxes   = get_sub_field('boxes') ?: [];
 $columns = (int) (get_sub_field('columns') ?: 3);
-$col_md  = 12 / max(1, $columns);
+
+$columns = max(1, min(12, $columns));
 ?>
 
 <?php if (!empty($boxes)): ?>
-<div class="row g-4">
 
-  <?php foreach ($boxes as $box):
+<div class="cards-grid" style="--cards-columns: <?php echo esc_attr($columns); ?>;">
 
-    $img = $box['image'] ?? 0;
-    $bg  = $box['background_image'] ?? 0;
-    $ttl = $box['title'] ?? '';
-    $txt = $box['text'] ?? '';
-    $lnk = $box['link'] ?? [];
+    <?php foreach ($boxes as $box):
 
-    $url    = is_array($lnk) ? ($lnk['url'] ?? '') : '';
-    $label  = is_array($lnk) ? ($lnk['title'] ?? '') : '';
-    $target = is_array($lnk) ? ($lnk['target'] ?? '_self') : '_self';
+        $img = $box['image'] ?? 0;
+        $bg  = $box['background_image'] ?? 0;
+        $ttl = $box['title'] ?? '';
+        $txt = $box['text'] ?? '';
+        $lnk = $box['link'] ?? [];
 
-    $bg_url = $bg ? wp_get_attachment_image_url($bg, 'large') : '';
-  ?>
+        $url    = is_array($lnk) ? ($lnk['url'] ?? '') : '';
+        $label  = is_array($lnk) ? ($lnk['title'] ?? '') : '';
+        $target = is_array($lnk) ? ($lnk['target'] ?? '_self') : '_self';
 
-  <div class="col-12 col-md-<?php echo esc_attr($col_md); ?>">
+        $bg_url = $bg ? wp_get_attachment_image_url($bg, 'large') : '';
 
-    <div class="card h-100"
-         <?php if ($bg_url): ?>
-         style="background-image: url('<?php echo esc_url($bg_url); ?>');"
-         <?php endif; ?>>
+    ?>
 
-      <div class="card-body d-flex flex-column">
+    <div class="cards-grid-item">
 
-        <?php if ($img): ?>
-          <?php echo wp_get_attachment_image($img, 'medium_large', false, ['class' => 'card-img-top']); ?>
-        <?php endif; ?>
+        <div class="card">
 
-        <?php if ($ttl): ?>
-          <h3 class="h5 card-title">
-            <?php echo esc_html($ttl); ?>
-          </h3>
-        <?php endif; ?>
+            <?php if ($bg_url): ?>
+                <div class="card-background"
+                     style="background-image: url('<?php echo esc_url($bg_url); ?>');">
+                </div>
+            <?php endif; ?>
 
-        <?php if ($txt): ?>
-          <p class="card-text mb-3">
-            <?php echo esc_html($txt); ?>
-          </p>
-        <?php endif; ?>
+            <div class="card-body">
 
-        <?php if ($url): ?>
-          <div class="mt-auto">
-            <a class="btn btn-primary"
-               href="<?php echo esc_url($url); ?>"
-               target="<?php echo esc_attr($target); ?>">
-              <?php echo esc_html($label ?: __('Mehr','projecttheme')); ?>
-            </a>
-          </div>
-        <?php endif; ?>
+                <?php if ($img): ?>
+                    <?php
+                    echo wp_get_attachment_image(
+                        $img,
+                        'medium_large',
+                        false,
+                        [
+                            'class' => 'card-img-top',
+                            'alt'   => esc_attr($ttl)
+                        ]
+                    );
+                    ?>
+                <?php endif; ?>
 
-      </div>
+                <?php if ($ttl): ?>
+                    <h2 class="card-title">
+                        <?php echo esc_html(wp_strip_all_tags($ttl)); ?>
+                    </h2>
+                <?php endif; ?>
+
+                <?php if ($txt): ?>
+                    <p class="card-text">
+                        <?php echo esc_html($txt); ?>
+                    </p>
+                <?php endif; ?>
+
+                <?php if ($url): ?>
+                    <div class="card-button">
+                        <a class="btn btn-primary"
+                           href="<?php echo esc_url($url); ?>"
+                           target="<?php echo esc_attr($target); ?>"
+                           <?php if ($target === '_blank'): ?>
+                               rel="noopener noreferrer"
+                           <?php endif; ?>>
+                            <?php echo esc_html($label ?: __('Mehr', 'projecttheme')); ?>
+                        </a>
+                    </div>
+                <?php endif; ?>
+
+            </div>
+        </div>
+
     </div>
 
-  </div>
-
-  <?php endforeach; ?>
+    <?php endforeach; ?>
 
 </div>
+
 <?php endif; ?>

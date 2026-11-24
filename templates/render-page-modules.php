@@ -132,7 +132,10 @@ while (have_rows('page_modules')) : the_row();
         case 'text_2col_intro':
             get_template_part('template-parts/flex/layout', 'text-2col-intro');
             break;
-            
+        
+        case 'workshops':
+            get_template_part('template-parts/flex/layout', 'workshops');
+            break;
     }
 
     // Section schließen

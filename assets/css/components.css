@@ -1,4 +1,3 @@
-
 /* =============================================
    1. INTRO – FULL WIDTH HERO
 ============================================= */
@@ -532,6 +531,17 @@
 }
 
 
+/* Workshop Title and Description */
+
+.workshop-title {
+    margin: 0 0 10px;
+}
+
+.workshop-description {
+    margin-bottom: 30px;
+}
+
+
 /* =============================================
    11. RESPONSIVE – TABLET
 ============================================= */
@@ -671,4 +681,26 @@
         font-size: 14px;
     }
 
+}
+
+/* Workshop Category Icons */
+
+.workshop-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.workshop-icons img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+}
+
+.workshop-icons img.active {
+    opacity: 1;
+}
+
+.workshop-icons img.inactive {
+    opacity: 0.2;
 }

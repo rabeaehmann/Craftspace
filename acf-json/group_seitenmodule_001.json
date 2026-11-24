@@ -1284,82 +1284,14 @@
                 },
                 "layout_6b04b24474275": {
                     "key": "layout_6b04b24474275",
-                    "name": "Workshops",
+                    "name": "workshops",
                     "label": "Workshops",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_6b04ba2adf63e",
-                            "label": "levels",
-                            "name": "levels",
-                            "aria-label": "",
-                            "type": "repeater",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "acfe_repeater_stylised_button": 0,
-                            "layout": "table",
-                            "min": 0,
-                            "max": 0,
-                            "collapsed": "",
-                            "button_label": "Add Row",
-                            "rows_per_page": 20,
-                            "sub_fields": [
-                                {
-                                    "key": "field_6b04ba38df63f",
-                                    "label": "level_title",
-                                    "name": "level_title",
-                                    "aria-label": "",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "allow_in_bindings": 0,
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0,
-                                    "parent_repeater": "field_6b04ba2adf63e"
-                                },
-                                {
-                                    "key": "field_6b04ba41df640",
-                                    "label": "level_description",
-                                    "name": "level_description",
-                                    "aria-label": "",
-                                    "type": "wysiwyg",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "allow_in_bindings": 0,
-                                    "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0,
-                                    "parent_repeater": "field_6b04ba2adf63e"
-                                }
-                            ]
-                        },
-                        {
                             "key": "field_6b04b24474276",
-                            "label": "workshops",
-                            "name": "workshopsw",
+                            "label": "Workshop Element",
+                            "name": "workshop_element",
                             "aria-label": "",
                             "type": "repeater",
                             "instructions": "",
@@ -1379,13 +1311,57 @@
                             "rows_per_page": 20,
                             "sub_fields": [
                                 {
+                                    "key": "field_6b0557ae1e4a8",
+                                    "label": "Title",
+                                    "name": "title",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6b04b24474276"
+                                },
+                                {
+                                    "key": "field_6b0557c91e4a9",
+                                    "label": "Description",
+                                    "name": "description",
+                                    "aria-label": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "maxlength": "",
+                                    "allow_in_bindings": 0,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "parent_repeater": "field_6b04b24474276"
+                                },
+                                {
                                     "key": "field_6b04b24474277",
-                                    "label": "image",
+                                    "label": "Image",
                                     "name": "image",
                                     "aria-label": "",
                                     "type": "image",
                                     "instructions": "",
-                                    "required": 0,
+                                    "required": 1,
                                     "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
@@ -1409,10 +1385,10 @@
                                 },
                                 {
                                     "key": "field_6b04b9eddf63b",
-                                    "label": "time",
+                                    "label": "Time",
                                     "name": "time",
                                     "aria-label": "",
-                                    "type": "text",
+                                    "type": "select",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -1421,20 +1397,31 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "maxlength": "",
+                                    "choices": {
+                                        "one": "One",
+                                        "two": "Two",
+                                        "three": "Three"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
                                     "allow_in_bindings": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
                                     "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "allow_custom": 0,
+                                    "search_placeholder": "",
                                     "parent_repeater": "field_6b04b24474276"
                                 },
                                 {
                                     "key": "field_6b04b9f8df63c",
-                                    "label": "budget",
+                                    "label": "Budget",
                                     "name": "budget",
                                     "aria-label": "",
-                                    "type": "text",
+                                    "type": "select",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -1443,20 +1430,31 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "maxlength": "",
+                                    "choices": {
+                                        "one": "One",
+                                        "two": "Two",
+                                        "three": "Three"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
                                     "allow_in_bindings": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
                                     "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "allow_custom": 0,
+                                    "search_placeholder": "",
                                     "parent_repeater": "field_6b04b24474276"
                                 },
                                 {
                                     "key": "field_6b04ba00df63d",
-                                    "label": "difficulty",
+                                    "label": "Difficulty",
                                     "name": "difficulty",
                                     "aria-label": "",
-                                    "type": "text",
+                                    "type": "select",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -1465,12 +1463,23 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "maxlength": "",
+                                    "choices": {
+                                        "one": "One",
+                                        "two": "Two",
+                                        "three": "Three"
+                                    },
+                                    "default_value": false,
+                                    "return_format": "value",
+                                    "multiple": 0,
+                                    "allow_null": 0,
                                     "allow_in_bindings": 0,
+                                    "ui": 0,
+                                    "ajax": 0,
                                     "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "create_options": 0,
+                                    "save_options": 0,
+                                    "allow_custom": 0,
+                                    "search_placeholder": "",
                                     "parent_repeater": "field_6b04b24474276"
                                 },
                                 {
@@ -2478,8 +2487,16 @@
             {
                 "key": "",
                 "value": ""
+            },
+            {
+                "key": "",
+                "value": ""
+            },
+            {
+                "key": "",
+                "value": ""
             }
         ]
     },
-    "modified": 1795472211
+    "modified": 1795512294
 }

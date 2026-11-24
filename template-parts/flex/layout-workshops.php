@@ -1,240 +1,172 @@
-
 <?php
 /**
  * Workshops
  *
  * ACF-Struktur:
- *
- * levels (Repeater)
- *   level_title (Text)
- *   level_description (WYSIWYG)
- *
- *   workshops (Repeater)
- *     image (Image ID)
- *     intro_text (WYSIWYG)
- *     time (Text)
- *     budget (Text)
- *     difficulty (Select: 1, 2, 3)
- *     bottom_text (WYSIWYG)
+ * workshop_element (Repeater)
+ *   title (Text)
+ *   description (Text)
+ *   image (Image ID)
+ *   time (Select)
+ *   budget (Select)
+ *   difficulty (Select)
+ *   bottom_text (WYSIWYG)
  */
 
+$workshops = get_sub_field('workshop_element') ?: [];
 
-$levels = get_sub_field('levels') ?: [];
+if (!empty($workshops)): ?>
 
-?>
+    <div class="workshops-grid">
 
-<?php if (!empty($levels)): ?>
+        <?php foreach ($workshops as $workshop):
 
-<div class="workshops-levels">
+            $title       = $workshop['title'] ?? '';
+            $description = $workshop['description'] ?? '';
+            $image_id    = $workshop['image'] ?? 0;
+            $time        = $workshop['time'] ?? '';
+            $budget      = $workshop['budget'] ?? '';
+            $difficulty  = $workshop['difficulty'] ?? '';
+            $bottom_text = $workshop['bottom_text'] ?? '';
 
+            $time_level = 1;
+            if ($time === 'two') {
+                $time_level = 2;
+            } elseif ($time === 'three') {
+                $time_level = 3;
+            } elseif (is_numeric($time)) {
+                $time_level = max(1, min(3, (int) $time));
+            }
 
-    <?php foreach ($levels as $level):
+            $budget_level = 1;
+            if ($budget === 'two') {
+                $budget_level = 2;
+            } elseif ($budget === 'three') {
+                $budget_level = 3;
+            } elseif (is_numeric($budget)) {
+                $budget_level = max(1, min(3, (int) $budget));
+            }
 
-        $level_title = $level['level_title'] ?? '';
-        $level_description = $level['level_description'] ?? '';
-        $workshops = $level['workshops'] ?? [];
+            $difficulty_level = 1;
+            if ($difficulty === 'two') {
+                $difficulty_level = 2;
+            } elseif ($difficulty === 'three') {
+                $difficulty_level = 3;
+            } elseif (is_numeric($difficulty)) {
+                $difficulty_level = max(1, min(3, (int) $difficulty));
+            }
 
-    ?>
+        ?>
 
-        <section class="workshop-level">
+            <article class="workshop-card">
 
+                <?php if ($image_id): ?>
+                    <div class="workshop-image-wrapper">
+                        <?php
+                        echo wp_get_attachment_image(
+                            $image_id,
+                            'large',
+                            false,
+                            [
+                                'class' => 'workshop-image',
+                            ]
+                        );
+                        ?>
+                    </div>
+                <?php endif; ?>
 
-            <!-- LEVEL TITEL -->
+                <div class="workshop-body">
 
-            <?php if ($level_title): ?>
-                <h2 class="level-title">
-                    <?php echo esc_html($level_title); ?>
-                </h2>
-            <?php endif; ?>
+                    <?php if ($title): ?>
+                        <h2 class="workshop-title">
+                            <?php echo esc_html($title); ?>
+                        </h2>
+                    <?php endif; ?>
 
+                    <?php if ($description): ?>
+                        <div class="workshop-description">
+                            <?php echo esc_html($description); ?>
+                        </div>
+                    <?php endif; ?>
 
-            <!-- LEVEL BESCHREIBUNG -->
+                    <?php if ($time || $budget || $difficulty): ?>
+                        <div class="workshop-columns">
 
-            <?php if ($level_description): ?>
-                <div class="level-description">
-                    <?php echo wp_kses_post($level_description); ?>
-                </div>
-            <?php endif; ?>
-
-
-            <!-- WORKSHOPS -->
-
-            <?php if (!empty($workshops)): ?>
-
-                <div class="workshops-grid">
-
-
-                    <?php foreach ($workshops as $workshop):
-
-                        $img = $workshop['image'] ?? 0;
-                        $intro = $workshop['intro_text'] ?? '';
-
-                        $time = $workshop['time'] ?? '';
-                        $budget = $workshop['budget'] ?? '';
-
-                        $difficulty = (int) ($workshop['difficulty'] ?? 1);
-                        $difficulty = max(1, min(3, $difficulty));
-
-                        $bottom = $workshop['bottom_text'] ?? '';
-
-                    ?>
-
-
-                        <article class="workshop-card">
-
-
-                            <!-- BILD -->
-
-                            <?php if ($img): ?>
-
-                                <div class="workshop-image-wrapper">
-
-                                    <?php
-                                    echo wp_get_attachment_image(
-                                        $img,
-                                        'large',
-                                        false,
-                                        [
-                                            'class' => 'workshop-image',
-                                        ]
-                                    );
-                                    ?>
-
-                                </div>
-
-                            <?php endif; ?>
-
-
-                            <div class="workshop-body">
-
-
-                                <!-- INTRO WYSIWYG -->
-
-                                <?php if ($intro): ?>
-
-                                    <div class="workshop-intro">
-                                        <?php echo wp_kses_post($intro); ?>
-                                    </div>
-
+                            <div class="workshop-left">
+                                <?php if ($time): ?>
+                                    <div class="workshop-category">Time</div>
                                 <?php endif; ?>
 
-
-                                <!-- ZWEI SPALTEN -->
-
-                                <div class="workshop-columns">
-
-
-                                    <!-- LINKE SPALTE: KATEGORIEN -->
-
-                                    <div class="workshop-left">
-
-                                        <div class="workshop-category">
-                                            Time
-                                        </div>
-
-                                        <div class="workshop-category">
-                                            Budget
-                                        </div>
-
-                                        <div class="workshop-category">
-                                            Difficulty
-                                        </div>
-
-                                    </div>
-
-
-                                    <!-- RECHTE SPALTE: WERTE / ICONS -->
-
-                                    <div class="workshop-right">
-
-
-                                        <!-- TIME -->
-
-                                        <div class="workshop-meta-row">
-
-                                            <img
-                                                src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/time.svg'); ?>"
-                                                alt=""
-                                            >
-
-                                            <span>
-                                                <?php echo esc_html($time); ?>
-                                            </span>
-
-                                        </div>
-
-
-                                        <!-- BUDGET -->
-
-                                        <div class="workshop-meta-row">
-
-                                            <img
-                                                src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/budget.svg'); ?>"
-                                                alt=""
-                                            >
-
-                                            <span>
-                                                <?php echo esc_html($budget); ?>
-                                            </span>
-
-                                        </div>
-
-
-                                        <!-- DIFFICULTY -->
-
-                                        <div class="workshop-meta-row">
-
-                                            <div class="difficulty-icons">
-
-                                                <?php for ($i = 1; $i <= 3; $i++): ?>
-
-                                                    <img
-                                                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/difficulty.svg'); ?>"
-                                                        class="<?php echo $i <= $difficulty ? 'active' : 'inactive'; ?>"
-                                                        alt=""
-                                                    >
-
-                                                <?php endfor; ?>
-
-                                            </div>
-
-                                        </div>
-
-
-                                    </div>
-
-                                </div>
-
-
-                                <!-- BOTTOM WYSIWYG -->
-
-                                <?php if ($bottom): ?>
-
-                                    <div class="workshop-bottom">
-                                        <?php echo wp_kses_post($bottom); ?>
-                                    </div>
-
+                                <?php if ($budget): ?>
+                                    <div class="workshop-category">Budget</div>
                                 <?php endif; ?>
 
+                                <?php if ($difficulty): ?>
+                                    <div class="workshop-category">Difficulty</div>
+                                <?php endif; ?>
+                            </div>
+
+                            <div class="workshop-right">
+
+                                <?php if ($time): ?>
+                                    <div class="workshop-meta-row">
+                                        <div class="workshop-icons" aria-label="<?php echo esc_attr($time); ?>">
+                                            <?php for ($i = 1; $i <= 3; $i++): ?>
+                                                <img
+                                                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/time.svg'); ?>"
+                                                    class="<?php echo $i <= $time_level ? 'active' : 'inactive'; ?>"
+                                                    alt=""
+                                                >
+                                            <?php endfor; ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if ($budget): ?>
+                                    <div class="workshop-meta-row">
+                                        <div class="workshop-icons" aria-label="<?php echo esc_attr($budget); ?>">
+                                            <?php for ($i = 1; $i <= 3; $i++): ?>
+                                                <img
+                                                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/budget.svg'); ?>"
+                                                    class="<?php echo $i <= $budget_level ? 'active' : 'inactive'; ?>"
+                                                    alt=""
+                                                >
+                                            <?php endfor; ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if ($difficulty): ?>
+                                    <div class="workshop-meta-row">
+                                        <div class="workshop-icons" aria-label="<?php echo esc_attr($difficulty); ?>">
+                                            <?php for ($i = 1; $i <= 3; $i++): ?>
+                                                <img
+                                                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/icons/difficulty.svg'); ?>"
+                                                    class="<?php echo $i <= $difficulty_level ? 'active' : 'inactive'; ?>"
+                                                    alt=""
+                                                >
+                                            <?php endfor; ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
 
                             </div>
 
-                        </article>
+                        </div>
+                    <?php endif; ?>
 
-
-                    <?php endforeach; ?>
-
+                    <?php if ($bottom_text): ?>
+                        <div class="workshop-bottom">
+                            <?php echo wp_kses_post($bottom_text); ?>
+                        </div>
+                    <?php endif; ?>
 
                 </div>
 
-            <?php endif; ?>
+            </article>
 
+        <?php endforeach; ?>
 
-        </section>
-
-    <?php endforeach; ?>
-
-
-</div>
+    </div>
 
 <?php endif; ?>

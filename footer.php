@@ -12,19 +12,20 @@
     <div class="footer-content">
 
         <!-- Footer Bild -->
-        <div class="footer-image">
-            <?php
-            $footer_image_path = get_template_directory() . '/assets/images/footer-image.png';
+            <div class="footer-image">
+                <picture>
+                    <source
+                        media="(max-width: 767px)"
+                        srcset="<?php echo esc_url(get_template_directory_uri() . '/assets/images/footer_small.svg'); ?>"
+                    >
 
-            if (file_exists($footer_image_path)) :
-            ?>
-                <img
-                    src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/footer-image.png'); ?>"
-                    alt=""
-                    loading="lazy"
-                >
-            <?php endif; ?>
-        </div>
+                    <img
+                        src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/footer-image.svg'); ?>"
+                        alt=""
+                        loading="lazy"
+                    >
+                </picture>
+            </div>
 
         <!-- Footer Bottom -->
         <div class="footer-bottom container-lg">     

@@ -97,6 +97,19 @@
     color: var(--theme-color-background);
 }
 
+/* SECONDARY BUTTON – NORMAL, VISITED AND HOVER STATES */
+
+a.btn-secondary,
+a.btn-secondary:link,
+a.btn-secondary:visited,
+a.btn-secondary:focus,
+a.btn-secondary:active {
+    color: var(--theme-color-background) !important;
+}
+
+a.btn-secondary:hover {
+    color: var(--theme-color-neutral3) !important;
+}
 
 /* =============================================
    3. IMAGE SLIDER
@@ -364,7 +377,7 @@
 .breaker-own-container {
     width: 100%;
     max-width: 1320px;
-    padding: 0 20px;
+    /*padding: 0 20px;*/
     margin: 0 auto;
     box-sizing: border-box;
 }
@@ -386,6 +399,9 @@
     min-width: 0;
 }
 
+.container-intro {
+    padding: 0px !important;
+}
 
 /* =============================================
    10. WORKSHOPS
@@ -695,10 +711,6 @@
         margin-bottom: 50px;
     }
 
-    .workshops-grid {
-        grid-template-columns: 1fr;
-    }
-
     .workshop-body {
         padding: 20px;
     }
@@ -735,15 +747,6 @@
 
     .workshop-rating-note {
         margin-top: 12px;
-    }
-
-    .workshops-grid {
-        grid-template-columns: 333px;
-        gap: 40px;
-    }
-
-    .workshop-card {
-        max-width: 333px;
     }
 
     .workshop-listing-end {
@@ -1119,7 +1122,7 @@
 
     overflow-y: auto;
 
-    background: var(--theme-color-background);
+    background: var(--theme-color-accent);
     padding: 48px;
 
     border-radius: 27px;
@@ -1153,7 +1156,7 @@
 
     font-size: 30px;
     cursor: pointer;
-    color: #333;
+    color: var(--theme-color-neutral3);
 }
 
 /* Header */
@@ -1209,7 +1212,7 @@
 
     padding: 13px 14px;
 
-    border: 1px solid #dedede;
+    border: 1px solid var(--theme-color-primary);
     border-radius: 2px;
 
     background: var(--theme-color-background);
@@ -1240,7 +1243,7 @@
 
 .booking-participants input[type="range"] {
     width: 100%;
-    accent-color: #B0AFFD;
+    accent-color: var(--theme-color-primary);
     cursor: pointer;
 }
 
@@ -1260,7 +1263,7 @@
     border-radius: 27px;
     background-color: var(--theme-color-background);
     border: 1px solid var(--theme-color-neutral3);
-    color: #000;
+    color: var(--theme-color-neutral3);
 
     font: inherit;
     cursor: pointer;
@@ -1328,3 +1331,21 @@ body.booking-modal-open {
 
 }
 
+
+/* =============================================
+   WORKSHOPS – MOBILE CARD LAYOUT FIX
+============================================= */
+
+@media (max-width: 767px) {
+    .workshops-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 40px;
+    }
+
+    .workshop-card {
+        width: 333px;
+        max-width: 333px;
+    }
+}

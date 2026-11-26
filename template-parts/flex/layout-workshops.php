@@ -66,7 +66,7 @@ if (!empty($workshops)): ?>
                 All workshops · <?php echo esc_html(count($workshops)); ?> crafts to explore
             </p>
             <p class="workshop-rating-note">
-                Ratings run from 1 (lower) to 3 (higher), not hours or prices.
+                Ratings run from 1 (lower) to 3 (higher).
             </p>
         </div>
 
@@ -218,8 +218,13 @@ if (!empty($workshops)): ?>
         </div>
 
         <div class="workshop-listing-end">
-            <p>You’ve explored all <?php echo esc_html(count($workshops)); ?> crafts. Which one sparked your curiosity?</p>
-            <p data-workshop-summary><?php echo esc_html(count($workshops)); ?> of <?php echo esc_html(count($workshops)); ?> workshops</p>
+            <p data-workshop-ending>
+                You’ve explored all <?php echo esc_html(count($workshops)); ?> crafts. Which one sparked your curiosity?
+            </p>
+
+            <p data-workshop-summary>
+                <?php echo esc_html(count($workshops)); ?> of <?php echo esc_html(count($workshops)); ?> workshops
+            </p>
         </div>
 
     </div>

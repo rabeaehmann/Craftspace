@@ -5,7 +5,7 @@ $right = get_sub_field('right');
 ?>
 
 <section>
-    <div class="container">
+    <div class="container-intro">
         <div class="row g-5 align-items-center">
 
             <!-- Linke Spalte -->

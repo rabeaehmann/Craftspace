@@ -35,12 +35,19 @@ $link     = get_sub_field('link');
     <div class="col-md-6">
         <?php
         if ($image_id) {
-            echo wp_get_attachment_image(
-                $image_id,
-                'large',
-                false,
-                ['class' => 'img-fluid rounded']
-            );
+            $image_url = wp_get_attachment_url($image_id);
+            $mime_type = get_post_mime_type($image_id);
+
+            if ($mime_type === 'image/svg+xml') {
+                echo '<img src="' . esc_url($image_url) . '" class="img-fluid rounded fixed-image" alt="">';
+            } else {
+                echo wp_get_attachment_image(
+                    $image_id,
+                    'large',
+                    false,
+                    ['class' => 'img-fluid rounded fixed-image']
+                );
+            }
         }
         ?>
     </div>

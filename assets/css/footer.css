@@ -240,7 +240,6 @@ html {
 @media (max-width: 767px) {
 
     .footer-content {
-        padding: 30px 20px 50px;
         gap: 10px;
     }
 

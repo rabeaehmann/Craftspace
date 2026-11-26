@@ -17,4 +17,17 @@
 
 body {
   background-color: var(--theme-color-background);
-} 
+}
+
+@media (max-width: 767px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl,
+  .container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}

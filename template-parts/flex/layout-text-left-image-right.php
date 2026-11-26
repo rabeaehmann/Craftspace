@@ -39,13 +39,13 @@ $link     = get_sub_field('link');
             $mime_type = get_post_mime_type($image_id);
 
             if ($mime_type === 'image/svg+xml') {
-                echo '<img src="' . esc_url($image_url) . '" class="img-fluid rounded fixed-image" alt="">';
+                echo '<img src="' . esc_url($image_url) . '" class="img-fluid rounded image-fixed" alt="">';
             } else {
                 echo wp_get_attachment_image(
                     $image_id,
                     'large',
                     false,
-                    ['class' => 'img-fluid rounded fixed-image']
+                    ['class' => 'img-fluid rounded image-fixed']
                 );
             }
         }

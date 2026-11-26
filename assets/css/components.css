@@ -1351,9 +1351,9 @@ body.booking-modal-open {
 }
 
 
-.fixed-image {
+.image-fixed {
     width: 100%;
     height: 400px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }

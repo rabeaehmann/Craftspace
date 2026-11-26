@@ -1384,9 +1384,9 @@
                                     "parent_repeater": "field_6b04b24474276"
                                 },
                                 {
-                                    "key": "field_6b04b9eddf63b",
-                                    "label": "Time",
-                                    "name": "time",
+                                    "key": "field_6b04ba00df63d",
+                                    "label": "Difficulty",
+                                    "name": "difficulty",
                                     "aria-label": "",
                                     "type": "select",
                                     "instructions": "",
@@ -1450,9 +1450,9 @@
                                     "parent_repeater": "field_6b04b24474276"
                                 },
                                 {
-                                    "key": "field_6b04ba00df63d",
-                                    "label": "Difficulty",
-                                    "name": "difficulty",
+                                    "key": "field_6b04b9eddf63b",
+                                    "label": "Time",
+                                    "name": "time",
                                     "aria-label": "",
                                     "type": "select",
                                     "instructions": "",
@@ -1502,6 +1502,24 @@
                                     "toolbar": "full",
                                     "media_upload": 1,
                                     "delay": 0,
+                                    "parent_repeater": "field_6b04b24474276"
+                                },
+                                {
+                                    "key": "field_6b05d0187563e",
+                                    "label": "Link",
+                                    "name": "link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "allow_in_bindings": 0,
                                     "parent_repeater": "field_6b04b24474276"
                                 }
                             ]
@@ -2495,8 +2513,24 @@
             {
                 "key": "",
                 "value": ""
+            },
+            {
+                "key": "",
+                "value": ""
+            },
+            {
+                "key": "",
+                "value": ""
+            },
+            {
+                "key": "",
+                "value": ""
+            },
+            {
+                "key": "",
+                "value": ""
             }
         ]
     },
-    "modified": 1795512294
+    "modified": 1795695286
 }

@@ -1353,7 +1353,6 @@ body.booking-modal-open {
 
 .image-fixed {
     width: 100%;
-    height: 400px;
     object-fit: contain;
     object-position: center;
 }
